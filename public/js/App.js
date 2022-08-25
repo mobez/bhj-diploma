@@ -137,6 +137,7 @@ class App {
   static showPage(pageName, options) {
     const page = this.getPage(pageName);
     page.render(options);
+    localStorage.setItem(pageName, JSON.stringify(options));
   }
 
   /**

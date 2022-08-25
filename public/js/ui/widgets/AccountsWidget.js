@@ -14,7 +14,13 @@ class AccountsWidget {
    * необходимо выкинуть ошибку.
    * */
   constructor( element ) {
-
+    if (element){
+      this.element = element;
+      this.update();
+      this.registerEvents();
+    }else{
+      alert("Элемент не существует!");
+    }
   }
 
   /**
@@ -25,7 +31,9 @@ class AccountsWidget {
    * вызывает AccountsWidget.onSelectAccount()
    * */
   registerEvents() {
-
+    this.element.querySelector(".create-account").onclick = e => {
+      App.getModal("createAccount").open();
+    }
   }
 
   /**
@@ -39,7 +47,14 @@ class AccountsWidget {
    * метода renderItem()
    * */
   update() {
-
+    Account.list(null, (err, resp) => {
+      if (resp && resp.success){
+        this.clear();
+        this.renderItem(resp.data);
+      }else{
+        alert(err.error);
+      }
+    });
   }
 
   /**
@@ -48,7 +63,9 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-
+    this.element.querySelectorAll("li.account").forEach(li =>{
+      li.remove();
+    });
   }
 
   /**
@@ -59,7 +76,25 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount( element ) {
-
+    const transactions = JSON.parse(localStorage.transactions);
+    if (transactions) {
+      const elementOld = this.element.querySelector(`[data-id="${transactions.account_id}"]`);
+      if (elementOld)
+        elementOld.classList.remove("active");
+    }
+    if (element){
+      element.classList.add("active");
+      App.showPage( 'transactions', { account_id: element.dataset.id });
+      localStorage.setItem("elementTransaction", JSON.stringify({element: element}));
+      let select = document.getElementById("income-accounts-list");
+      if (select)
+        select.value = element.dataset.id;
+      select = document.getElementById("expense-accounts-list");
+      if (select)
+        select.value = element.dataset.id;
+    }else{
+      localStorage.transactions = null;
+    }
   }
 
   /**
@@ -68,7 +103,12 @@ class AccountsWidget {
    * item - объект с данными о счёте
    * */
   getAccountHTML(item){
-
+    return `<li class="account" data-id="${item.id}">
+              <a href="#">
+                <span>${item.name}</span>
+                <span>${(item.sum).toLocaleString('en-US')} ₽</span>
+              </a>
+            </li>`;
   }
 
   /**
@@ -78,6 +118,25 @@ class AccountsWidget {
    * и добавляет его внутрь элемента виджета
    * */
   renderItem(data){
-
+    const transactions = JSON.parse(localStorage.transactions);
+    let account_id = null;
+    if (transactions) {
+      account_id = transactions.account_id
+    }
+    let elementId = null;
+    data.forEach(item => {
+      this.element.insertAdjacentHTML("beforeend",this.getAccountHTML(item));
+      const elementId = this.element.querySelector(`[data-id="${item.id}"]`);
+      if (elementId){
+        if (account_id)
+          if (item.id == account_id){
+            elementId.classList.add("active");
+        }
+        elementId.childNodes[1].onclick = e => {
+          e.preventDefault();
+          this.onSelectAccount(elementId);
+        };
+      }
+    });
   }
 }

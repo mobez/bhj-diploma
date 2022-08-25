@@ -1,0 +1,196 @@
+{
+  "users": [
+    {
+      "name": "demo",
+      "email": "demo@demo",
+      "password": "demo",
+      "id": "1"
+    },
+    {
+      "name": "Test",
+      "email": "test@demo",
+      "password": "demo",
+      "id": "15pdasgl78up9ho"
+    },
+    {
+      "name": "Test",
+      "email": "123@demo",
+      "password": "123",
+      "id": "15pdasgl78urtjy"
+    },
+    {
+      "name": "test99",
+      "email": "qwerty@demo",
+      "password": "123",
+      "id": "15pdaq8l78utx0c"
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Магазин",
+      "user_id": "1",
+      "id": "2"
+    },
+    {
+      "name": "Бизнес",
+      "user_id": "1",
+      "id": "3"
+    },
+    {
+      "name": "Сбербанк",
+      "user_id": "1",
+      "id": "15pdaywl7978nfm"
+    },
+    {
+      "name": "Test",
+      "user_id": "1",
+      "id": "15pdaywl797sy1v"
+    }
+  ],
+  "transactions": [
+    {
+      "account_id": "2",
+      "created_at": "2019-09-26 16:23:02",
+      "id": "4",
+      "name": "Молочные продукты",
+      "sum": 100,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-25 15:03:02",
+      "id": "5",
+      "name": "Фрукты",
+      "sum": 250,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-25 15:03:02",
+      "id": "17",
+      "name": "Овощи",
+      "sum": 300,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-26 14:47:02",
+      "id": "6",
+      "name": "Мясо",
+      "sum": 600,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-27 13:27:02",
+      "id": "7",
+      "name": "Долг в банк",
+      "sum": 5000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-27 13:32:02",
+      "id": "8",
+      "name": "Долг в банк",
+      "sum": 0.54,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-10-15 13:27:02",
+      "id": "9",
+      "name": "На банду",
+      "sum": 15000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-09-17 13:27:02",
+      "id": "10",
+      "name": "На стволы",
+      "sum": 6000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-12-27 13:27:02",
+      "id": "11",
+      "name": "Прибыль с банка",
+      "sum": 1500000,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2018-01-15 13:27:02",
+      "id": "12",
+      "name": "Прибыль с магазина",
+      "sum": 300000,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2018-01-15 13:27:02",
+      "id": "13",
+      "name": "Подарок сизого",
+      "sum": 20000,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-09-15 13:27:02",
+      "id": "14",
+      "name": "На охрану",
+      "sum": 60000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-10-15 13:27:02",
+      "id": "15",
+      "name": "На бумер",
+      "sum": 300000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "id": "15pd4nkl7902euu",
+      "type": "income",
+      "name": "Test",
+      "sum": 423,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2022-08-25T12:07:10.517Z"
+    },
+    {
+      "id": "15pdaywl797tpou",
+      "type": "income",
+      "name": "Зп",
+      "sum": 100000,
+      "account_id": "15pdaywl7978nfm",
+      "user_id": "1",
+      "created_at": "2022-08-25T15:44:21.582Z"
+    },
+    {
+      "id": "15pdaywl797u8bp",
+      "type": "expense",
+      "name": "Шины",
+      "sum": 50000,
+      "account_id": "15pdaywl7978nfm",
+      "user_id": "1",
+      "created_at": "2022-08-25T15:44:45.733Z"
+    }
+  ]
+}
