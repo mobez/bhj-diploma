@@ -13,7 +13,7 @@ class CreateAccountForm extends AsyncForm {
       if (resp && resp.success){
         const transactions = localStorage.transactions;
         if (transactions) {
-          document.querySelector(`.account[data-id="${JSON.parse(transactions.account_id)}"]`).classList.remove(".active");
+          document.querySelector(`.account[data-id="${JSON.parse(transactions).account_id}"]`).classList.remove(".active");
         }
         localStorage.setItem("transactions", JSON.stringify({account_id: resp.account.id}));
         this.element.reset();
