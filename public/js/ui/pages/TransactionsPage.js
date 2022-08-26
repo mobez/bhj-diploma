@@ -56,10 +56,10 @@ class TransactionsPage {
       if (confirm("Вы действительно хотите удалить счёт?"))
         Account.remove({id: JSON.parse(localStorage.transactions).account_id}, (err, resp) =>{
           if (resp && resp.success){
+            localStorage.removeItem("transactions");
             App.updateWidgets();
             App.updateForms();
             this.clear();
-            localStorage.transactions = null;
           }else{
             alert(err.error);
           }
