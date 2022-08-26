@@ -15,7 +15,7 @@ class CreateAccountForm extends AsyncForm {
         if (transactions) {
           document.querySelector(`.account[data-id="${JSON.parse(transactions.account_id)}"]`).classList.remove(".active");
         }
-        localStorage.transactions = JSON.stringify({account_id: resp.account.id});
+        localStorage.setItem("transactions", JSON.stringify({account_id: resp.account.id}));
         this.element.reset();
         App.getModal("createAccount").close();
         App.update();

@@ -94,7 +94,7 @@ class AccountsWidget {
       if (select)
         select.value = element.dataset.id;
     }else{
-      localStorage.transactions = null;
+      localStorage.removeItem("transactions");
     }
   }
 
