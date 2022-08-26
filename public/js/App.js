@@ -13,13 +13,13 @@ class App {
     this.content = document.querySelector(".content-wrapper");
 
     this.initPages();
-    this.initForms();
     this.initModals();
-    this.initWidgets();
 
     Sidebar.init();
 
     this.initUser();
+    this.initForms();
+    this.initWidgets();
   }
 
   /**
@@ -181,8 +181,8 @@ class App {
    * */
   static update() {
     this.updateWidgets();
-    this.updatePages();
     this.updateForms();
+    this.updatePages();
   }
 
   /**
@@ -200,8 +200,8 @@ class App {
    * accounts и user
    * */
   static updateWidgets() {
-    this.getWidget("accounts").update();
     this.getWidget("user").update();
+    this.getWidget("accounts").update();
   }
 
   static updateForms() {

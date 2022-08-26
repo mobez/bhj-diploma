@@ -52,6 +52,7 @@ class AccountsWidget {
         this.clear();
         this.renderItem(resp.data);
       }else{
+        User.unsetCurrent();
         alert(err.error);
       }
     });
@@ -76,9 +77,9 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount( element ) {
-    const transactions = JSON.parse(localStorage.transactions);
+    const transactions = localStorage.transactions;
     if (transactions) {
-      const elementOld = this.element.querySelector(`[data-id="${transactions.account_id}"]`);
+      const elementOld = this.element.querySelector(`[data-id="${JSON.parse(transactions).account_id}"]`);
       if (elementOld)
         elementOld.classList.remove("active");
     }
@@ -118,10 +119,10 @@ class AccountsWidget {
    * и добавляет его внутрь элемента виджета
    * */
   renderItem(data){
-    const transactions = JSON.parse(localStorage.transactions);
+    const transactions = localStorage.transactions;
     let account_id = null;
     if (transactions) {
-      account_id = transactions.account_id
+      account_id = JSON.parse(transactions).account_id
     }
     let elementId = null;
     data.forEach(item => {

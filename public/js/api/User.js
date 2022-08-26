@@ -18,6 +18,7 @@ class User {
    * */
   static unsetCurrent() {
     localStorage.removeItem("user");
+    localStorage.removeItem("transactions");
   }
 
   /**
@@ -98,9 +99,10 @@ class User {
       url: this.URL + '/logout',
       method: 'POST',
       callback: (err, response) => {
-        if (response && response.user) {
+        if (response && response.success) {
           this.unsetCurrent();
-          localStorage.transactions = null;
+        }else{
+          alert(err.error);
         }
         callback(err, response);
       }

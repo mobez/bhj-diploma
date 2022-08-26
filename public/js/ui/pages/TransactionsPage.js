@@ -13,7 +13,7 @@ class TransactionsPage {
   constructor( element ) {
     if (element){
       this.element = element;
-      this.update();
+      //this.update();
       this.registerEvents();
     }else{
       alert("Элемент не существует!");
@@ -24,9 +24,9 @@ class TransactionsPage {
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-    const transactions = JSON.parse(localStorage.transactions);
+    const transactions = localStorage.transactions;
     if (transactions) {
-      this.render(transactions);
+      this.render(JSON.parse(transactions));
     }
   }
 
@@ -126,7 +126,8 @@ class TransactionsPage {
    * в формат «10 марта 2019 г. в 03:20»
    * */
   formatDate(date){
-
+    const dates = new Date(date);
+    return `${dates.toLocaleDateString(undefined, {month: "long", day: "numeric", year: "numeric",})} в ${dates.toLocaleTimeString(undefined, {hour: "2-digit", minute: "2-digit",})}`;
   }
 
   /**
@@ -142,7 +143,7 @@ class TransactionsPage {
                 <div class="transaction__info">
                     <h4 class="transaction__title">${item.name}</h4>
                     <!-- дата -->
-                    <div class="transaction__date">${item.created_at}</div>
+                    <div class="transaction__date">${this.formatDate(item.created_at)}</div>
                 </div>
               </div>
               <div class="col-md-3">
