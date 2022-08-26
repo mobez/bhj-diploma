@@ -16,13 +16,13 @@ const createRequest = (options = {}) => {
       Object.entries(options.data).forEach(v => formData.append(...v));
     }
   }
-
+  xhr.responseType = 'json';
   xhr.onreadystatechange = () => {
     if (xhr.readyState === XMLHttpRequest.DONE){
       let err = null;
       let resp = null;
       if (xhr.status === 200){
-        const r = JSON.parse(xhr.response);
+        const r = xhr.response;
         if (r && r.success) { //response?.success
           resp = r;
         }else{

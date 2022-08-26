@@ -23,6 +23,12 @@
       "email": "qwerty@demo",
       "password": "123",
       "id": "15pdaq8l78utx0c"
+    },
+    {
+      "name": "Александр ",
+      "email": "aanik@demo",
+      "password": "123",
+      "id": "15pd19wl7a3neb5"
     }
   ],
   "accounts": [
@@ -45,6 +51,16 @@
       "name": "segbsfg",
       "user_id": "1",
       "id": "15pd36gl7a3id79"
+    },
+    {
+      "name": "Test",
+      "user_id": "15pdasgl78up9ho",
+      "id": "15pd19wl7a3m8vb"
+    },
+    {
+      "name": "csdvs",
+      "user_id": "15pdaq8l78utx0c",
+      "id": "15pd19wl7a3mtq9"
     }
   ],
   "transactions": [
