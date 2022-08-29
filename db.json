@@ -29,6 +29,12 @@
       "email": "aanik@demo",
       "password": "123",
       "id": "15pd19wl7a3neb5"
+    },
+    {
+      "name": "Сбербанк",
+      "email": "demo@demo25",
+      "password": "1",
+      "id": "15pd3n8l7a3y8v4"
     }
   ],
   "accounts": [
